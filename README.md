@@ -1,4 +1,4 @@
-# ant-design-vue-pro
+# antd-vue-demo
 
 ## Project setup
 ```
