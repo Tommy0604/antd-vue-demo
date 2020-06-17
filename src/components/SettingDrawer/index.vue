@@ -1,12 +1,10 @@
 <template>
   <div>
     <a-drawer
-      title="Basic Drawer"
       placement="right"
       :closable="false"
-      :visible="visible"
-      :after-visible-change="afterVisibleChange"
       @close="onClose"
+      :visible="visible"
       width="300px"
     >
       <template v-slot:handle>
@@ -26,7 +24,7 @@
           </a-radio-group>
           <h2>导航模式</h2>
           <a-radio-group
-            :value="($route.query && $route.query.navLayout) || 'left'"
+            :value="$route.query.navLayout || 'left'"
             @change="e => handleSettingChange('navLayout', e.target.value)"
           >
             <a-radio value="left">左侧</a-radio>
@@ -45,19 +43,15 @@ export default {
     };
   },
   methods: {
-    afterVisibleChange(val) {
-      console.log("visible", val);
-    },
-    handleSettingChange(type, value) {
-      this.$router.push({ query: { ...this.$router.query, [type]: value } });
-    },
     onClose() {
       this.visible = false;
+    },
+    handleSettingChange(type, value) {
+      this.$router.push({ query: { ...this.$route.query, [type]: value } });
     }
   }
 };
 </script>
-
 <style scoped>
 .handle {
   position: absolute;
