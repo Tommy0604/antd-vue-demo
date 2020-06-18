@@ -1,6 +1,11 @@
 <template>
   <div style="width: 256px">
-    <a-menu :selectedKeys="selectedKeys" :openKeys.sync="openKeys" mode="inline" :theme="theme">
+    <a-menu
+      :selectedKeys="selectedKeys"
+      :openKeys.sync="openKeys"
+      mode="inline"
+      :theme="theme"
+    >
       <template v-for="item in menuData">
         <a-menu-item
           v-if="!item.children"
